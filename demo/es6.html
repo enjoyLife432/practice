@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inp">
+    <script src="./es6.js"></script>
+</body>
+
+<script type="text/javascript">
+const list = [
+    {
+        "begin_time": "60000",
+        "end_time": "61500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "224500",
+        "end_time": "230000",
+        "line_id": "10074",
+        "level": "1"
+    },
+    {
+        "begin_time": "103000",
+        "end_time": "104500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "204500",
+        "end_time": "210000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "203000",
+        "end_time": "204500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "51500",
+        "end_time": "53000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "140000",
+        "end_time": "141500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "190000",
+        "end_time": "191500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "113000",
+        "end_time": "114500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "144500",
+        "end_time": "150000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "81500",
+        "end_time": "83000",
+        "line_id": "10074",
+        "level": "8"
+    },
+    {
+        "begin_time": "180000",
+        "end_time": "181500",
+        "line_id": "10074",
+        "level": "8"
+    },
+    {
+        "begin_time": "100000",
+        "end_time": "101500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "114500",
+        "end_time": "120000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "84500",
+        "end_time": "90000",
+        "line_id": "10074",
+        "level": "9"
+    },
+    {
+        "begin_time": "151500",
+        "end_time": "153000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "64500",
+        "end_time": "70000",
+        "line_id": "10074",
+        "level": "7"
+    },
+    {
+        "begin_time": "181500",
+        "end_time": "183000",
+        "line_id": "10074",
+        "level": "5"
+    },
+    {
+        "begin_time": "101500",
+        "end_time": "103000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "230000",
+        "end_time": "231500",
+        "line_id": "10074",
+        "level": "1"
+    },
+    {
+        "begin_time": "210000",
+        "end_time": "211500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "173000",
+        "end_time": "174500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "130000",
+        "end_time": "131500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "110000",
+        "end_time": "111500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "164500",
+        "end_time": "170000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "104500",
+        "end_time": "110000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "153000",
+        "end_time": "154500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "71500",
+        "end_time": "73000",
+        "line_id": "10074",
+        "level": "9"
+    },
+    {
+        "begin_time": "53000",
+        "end_time": "54500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "134500",
+        "end_time": "140000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "93000",
+        "end_time": "94500",
+        "line_id": "10074",
+        "level": "9"
+    },
+    {
+        "begin_time": "94500",
+        "end_time": "100000",
+        "line_id": "10074",
+        "level": "7"
+    },
+    {
+        "begin_time": "120000",
+        "end_time": "121500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "123000",
+        "end_time": "124500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "121500",
+        "end_time": "123000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "143000",
+        "end_time": "144500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "174500",
+        "end_time": "180000",
+        "line_id": "10074",
+        "level": "8"
+    },
+    {
+        "begin_time": "201500",
+        "end_time": "203000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "163000",
+        "end_time": "164500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "80000",
+        "end_time": "81500",
+        "line_id": "10074",
+        "level": "10"
+    },
+    {
+        "begin_time": "213000",
+        "end_time": "214500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "91500",
+        "end_time": "93000",
+        "line_id": "10074",
+        "level": "5"
+    },
+    {
+        "begin_time": "74500",
+        "end_time": "80000",
+        "line_id": "10074",
+        "level": "10"
+    },
+    {
+        "begin_time": "214500",
+        "end_time": "220000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "70000",
+        "end_time": "71500",
+        "line_id": "10074",
+        "level": "7"
+    },
+    {
+        "begin_time": "221500",
+        "end_time": "223000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "191500",
+        "end_time": "193000",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "141500",
+        "end_time": "143000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "220000",
+        "end_time": "221500",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "61500",
+        "end_time": "63000",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "223000",
+        "end_time": "224500",
+        "line_id": "10074",
+        "level": "1"
+    },
+    {
+        "begin_time": "50000",
+        "end_time": "51500",
+        "line_id": "10074",
+        "level": "1"
+    },
+    {
+        "begin_time": "160000",
+        "end_time": "161500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "184500",
+        "end_time": "190000",
+        "line_id": "10074",
+        "level": "5"
+    },
+    {
+        "begin_time": "90000",
+        "end_time": "91500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "73000",
+        "end_time": "74500",
+        "line_id": "10074",
+        "level": "9"
+    },
+    {
+        "begin_time": "193000",
+        "end_time": "194500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "124500",
+        "end_time": "130000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "111500",
+        "end_time": "113000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "161500",
+        "end_time": "163000",
+        "line_id": "10074",
+        "level": "5"
+    },
+    {
+        "begin_time": "154500",
+        "end_time": "160000",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "54500",
+        "end_time": "60000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "231500",
+        "end_time": "233000",
+        "line_id": "10074",
+        "level": "1"
+    },
+    {
+        "begin_time": "83000",
+        "end_time": "84500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "170000",
+        "end_time": "171500",
+        "line_id": "10074",
+        "level": "7"
+    },
+    {
+        "begin_time": "150000",
+        "end_time": "151500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "200000",
+        "end_time": "201500",
+        "line_id": "10074",
+        "level": "4"
+    },
+    {
+        "begin_time": "171500",
+        "end_time": "173000",
+        "line_id": "10074",
+        "level": "7"
+    },
+    {
+        "begin_time": "183000",
+        "end_time": "184500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "211500",
+        "end_time": "213000",
+        "line_id": "10074",
+        "level": "2"
+    },
+    {
+        "begin_time": "63000",
+        "end_time": "64500",
+        "line_id": "10074",
+        "level": "6"
+    },
+    {
+        "begin_time": "133000",
+        "end_time": "134500",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "131500",
+        "end_time": "133000",
+        "line_id": "10074",
+        "level": "3"
+    },
+    {
+        "begin_time": "194500",
+        "end_time": "200000",
+        "line_id": "10074",
+        "level": "3"
+    }
+]
+
+// const sortList = list.sort(function (a, b) {
+// 	return a.begin_time - b.begin_time
+// });
+// console.log(sortList)
+function getNextDate(date, day) { 
+　　var dd = new Date(date);
+　　dd.setDate(dd.getDate() + day);
+	console.log(dd)
+　　var y = dd.getFullYear();
+　　var m = dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1;
+　　var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate();
+　　return y + "-" + m + "-" + d;
+}
+
+const yestDay = getNextDate(new Date(), -1);
+
+function getNewArr(list) {
+	const result = [];
+	list.forEach((item, index) => {
+		let sh = "";
+		let sm = "";
+		let ss = "";
+		let eh, em, es;
+		if (item.begin_time.length == 5) {
+			sh = "0" + item.begin_time.slice(0, 1);
+			sm = item.begin_time.slice(1, 3);
+			ss = item.begin_time.slice(3);
+		} else {
+			sh = item.begin_time.slice(0, 2);
+			sm = item.begin_time.slice(2, 4);
+			ss = item.begin_time.slice(4);
+		}
+		if (item.end_time.length == 5) {
+			eh = "0" + item.end_time.slice(0, 1);
+			em = item.end_time.slice(1, 3);
+			es = item.end_time.slice(3);
+		} else {
+			eh = item.end_time.slice(0, 2);
+			em = item.end_time.slice(2, 4);
+			es = item.end_time.slice(4);
+		}
+		result.push({
+			...item,
+			begin_time: new Date(yestDay + "T" + sh + ":" + sm + ":" + ss).getTime() / 1000,
+			end_time: new Date(yestDay + "T" + eh + ":" + em + ":" + es).getTime() / 1000,
+		})
+	})
+	return result;
+}
+
+let newList = getNewArr(list);
+console.log(newList)
+	
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">一次删除一个</button>
+    <div id="main">
+        <p>11</p>
+        <p>21</p>
+        <p>31</p>
+        <p>41</p>
+        <p>51</p>
+        <p>61</p>
+        <p>71</p>
+        <p>81</p>
+        <p>91</p>
+        <p>101</p>
+        <p>111</p>
+        <p>121</p>
+    </div>
+
+    <script>
+        let divNode = document.getElementById("main");
+        let pNodes = divNode.getElementsByTagName("p");
+        console.log(pNodes)
+        document.write(pNodes)
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            Array.from(pNodes).forEach((item, index) => {
+                if (index === 2) {
+                    divNode.removeChild(pNodes[2])
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+	
+
+	function throttle(fn, delay) {
+
+		let valid = true;
+		return function () {
+			if (!valid) false;
+			valid = false;
+			setTimeout(() => {
+				fn();
+				valid = true;
+			}, delay);
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	function throttle (fn, delay) {
+		var valid = true;
+
+		return function () {
+			const that = this;
+			const args = argments;
+			if (!valid) false;
+			valid = false;
+			setTimeout(() => {
+				fn.apply(that, args);
+				valid = true;
+			}, delay);
+		}
+	}
+
+
+	// 定时器版本
+	function throttle (fn, delay) {
+		var valid = null;
+		return function () {
+			const that = this;
+			if (!valid) {
+				valid = setTimeout(() => {
+					fn.apply(that, argments);
+					valid = null;
+				}, delay);
+			}
+		}
+	}
+	// 时间戳版本
+	function throttle (fn, delay) {
+		var prev = Date.now();
+		return function () {
+			const that = this;
+			const args = argments;
+			var now = Date.now();
+			if (now - prev > delay) {
+				fn.apply(that, args);
+				prev = Date.now();
+			}
+
+		}
+	}
+
+
+
+</script>
+</body>
+</html>

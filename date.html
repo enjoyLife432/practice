@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<p id="text">55</p>
+
+
+
+
+<script type="text/javascript">
+	function getMonthDays(year, month) {
+		let nowYear = new Date().getFullYear();
+		let nowMonth = new Date().getMonth() + 1
+		if (!month && typeof month !== "number") {
+			if (year && typeof +year === "number" && +year > 12 && String(year).length === 2) {
+				year = String(nowYear).substring(0, 2) + year;
+				month = nowMonth
+			} else if (year && typeof +year === "number" && +year <= 12) {
+				month = year;
+				year = nowYear;
+			}
+		} else if (year && month && String(year).length === 2) {
+			year = String(nowYear).substring(0, 2) + year;
+			month = month;
+		}
+
+		year = +year || "";
+		month = +month || "";
+
+		let stratDate = new Date(year, month - 1, 1);
+		let endDate = new Date(year, month, 1);
+		let days = (endDate - stratDate) / (1000*60*60*24)
+		return days
+	}
+		let tem1 = getMonthDays(24);
+		document.getElementById("text").innerHTML = tem1
+		console.log(tem1)
+
+
+</script>
+
+</body>
+</html>

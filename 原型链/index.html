@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        
+
+
+
+
+        {
+    "panels": [{
+        "index": 0,
+        "paperType": "A4",
+        "height": 297,
+        "width": 210,
+        "paperHeader": 135,
+        "paperFooter": 751.5,
+        "printElements": [{
+            "options": {
+                "left": 151.5,
+                "top": 24,
+                "height": 16.5,
+                "width": 294,
+                "title": "德州春祥包装制品有限公司",
+                "fontSize": 15,
+                "fontWeight": "bold",
+                "letterSpacing": 3,
+                "textAlign": "center",
+                "textContentVerticalAlign": "middle"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 222,
+                "top": 45,
+                "height": 9.75,
+                "width": 156,
+                "title": "地址：山东省德州市武城县经济开发区"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 243,
+                "top": 63,
+                "height": 9.75,
+                "width": 105,
+                "title": "电话：0534-2177228"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 216,
+                "top": 82.5,
+                "height": 16.5,
+                "width": 171,
+                "fontSize": 12,
+                "field": "title"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 454.5,
+                "top": 99,
+                "height": 15,
+                "width": 121.5,
+                "title": "业务员",
+                "field": "saleMan",
+                "fontSize": 12,
+                "textAlign": "right"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 402,
+                "top": 117,
+                "height": 16.5,
+                "width": 174,
+                "title": "日期",
+                "field": "date",
+                "fontSize": 12,
+                "textAlign": "right"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 16.5,
+                "top": 151.5,
+                "height": 40,
+                "width": 559.5,
+                "field": "table",
+                "textAlign": "center",
+                "columns": [
+                    [{
+                        "width": 69.9375,
+                        "title": "客户名称",
+                        "columnId": "deliveryId",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row) {\nreturn row.ptNameST\n}"
+                    },
+                     {
+                        "width": 69.9375,
+                        "title": "订单标注",
+                        "columnId": "area",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row) {\nreturn row.markName\n}"
+                    },
+                     {
+                        "width": 69.9375,
+                        "title": "单据类型",
+                        "columnId": "driverName",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row) {\nreturn row.documentType\n}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "单据编号",
+                        "columnId": "mtSize",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row) {\nreturn row.documentNumber\n}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "交易日期",
+                        "columnId": "orderQuantity",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row){return row.transactionDate}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "增加金额",
+                        "columnId": "paTypeOrder",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row){return row.increaseAmount}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "减少金额",
+                        "columnId": "paperSize",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row){ return row.reducedAmount}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "期末欠款",
+                        "columnId": "poNo",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row){ return row.endTermArrearsAmount}"
+                    }, {
+                        "width": 69.9375,
+                        "title": "备注",
+                        "columnId": "price",
+                        "fixed": false,
+                        "rowspan": 1,
+                        "colspan": 1,
+                        "formatter2": "function(value, row){\nreturn row.remark\n}"
+                    }]
+                ]
+            },
+            "printElementType": {
+                "type": "table"
+            }
+        }, {
+            "options": {
+                "left": 13.5,
+                "top": 766.5,
+                "height": 9.75,
+                "width": 168,
+                "title": "三天之内请回传，否则视为默认以上金额"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 463.5,
+                "top": 768,
+                "height": 9.75,
+                "width": 120,
+                "title": "列印时间",
+                "field": "printDate"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 178.5,
+                "top": 802.5,
+                "height": 9.75,
+                "width": 120,
+                "title": "盖章签字确认：_______"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }, {
+            "options": {
+                "left": 15,
+                "top": 802.5,
+                "height": 9.75,
+                "width": 120,
+                "title": "制单人",
+                "field": "createBy",
+                "testData": "徐玲"
+            },
+            "printElementType": {
+                "type": "text"
+            }
+        }],
+        "paperNumberLeft": 565.5,
+        "paperNumberTop": 819
+    }]
+}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 1000px;
+        /* word-break: break-all; */
+    }
+</style>
+
+<body>
+
+
+    <div id="myDiv1"></div>
+    <div id="myDiv2"></div>
+    <div id="myDiv3"></div>
+
+    <script>
+        let times = 15000;
+        console.time(1);
+        for (var i = 0; i < times; i++) {
+            document.getElementById("myDiv1").innerHTML += "a";
+        }
+        console.timeEnd(1);
+
+        console.time(2);
+        var str = "";
+        for (var i = 0; i < times; i++) {
+            var temp = document.getElementById("myDiv2").innerHTML;
+            str += "a"
+        }
+        document.getElementById("myDiv2").innerHTML = str;
+        console.timeEnd(2);
+
+        console.time(3);
+        var _str = "";
+        for (var i = 0; i < times; i++) {
+            _str += "a";
+        }
+        document.getElementById("myDiv3").innerHTML = _str;
+        console.timeEnd(3)
+    </script>
+
+</body>
+
+</html>

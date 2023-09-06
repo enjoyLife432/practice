@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>视口宽度:<span id="clientWidth"></span></div>
+    <div>视口高度: <span id="clientHeight"></span></div>
+    <div>视觉视口宽度 <span id="innerWidth"></span></div>
+    <div>视觉视口高度 <span id="innerHeight"></span></div>
+    <div>理想视口宽度 <span id="screenWidth"></span></div>
+    <div>理想视口高度 <span id="screenHeight"></span></div>
+
+    <script>
+      function showClientSize() {
+        let width = document.getElementById("clientWidth");
+        let height = document.getElementById("clientHeight");
+
+        const clientWidth = document.documentElement.clientWidth;
+        const clientHeight = document.documentElement.clientHeight;
+
+        width.innerHTML = clientWidth;
+        height.innerHTML = clientHeight;
+
+        let innerWidth = document.getElementById("innerWidth");
+        let innerHeight = document.getElementById("innerHeight");
+
+        innerWidth.innerHTML = window.innerWidth;
+        innerHeight.innerHTML = window.innerHeight;
+
+        let screenWidth = document.getElementById("screenWidth");
+        let screenHeight = document.getElementById("screenHeight");
+        screenWidth.innerHTML = window.screen.width;
+        screenHeight.innerHTML = window.screen.height;
+      }
+      showClientSize();
+
+      window.onresize = () => {
+        return showClientSize();
+      };
+
+      //   function button1_onclick() {
+      //     //cpu 信息
+      //     var locator = new ActiveXObject("WbemScripting.SWbemLocator");
+      //     var service = locator.ConnectServer(".");
+      //     var properties = service.ExecQuery("SELECT * FROM Win32_Processor");
+      //     var e = new Enumerator(properties);
+      //     document.write("");
+      //     for (; !e.atEnd(); e.moveNext()) {
+      //       var p = e.item();
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //       document.write("");
+      //     }
+      //     document.write(
+      //       " " +
+      //         p.Caption +
+      //         "	" +
+      //         p.DeviceID +
+      //         "	" +
+      //         p.Name +
+      //         "	" +
+      //         p.CpuStatus +
+      //         "	" +
+      //         p.Availability +
+      //         "	" +
+      //         p.Level +
+      //         "	" +
+      //         p.ProcessorID +
+      //         "	" +
+      //         p.SystemName +
+      //         "	" +
+      //         p.ProcessorType +
+      //         " "
+      //     );
+      //   }
+      //   button1_onclick();
+    </script>
+  </body>
+</html>

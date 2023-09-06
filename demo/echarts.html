@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style>
+    #main {
+        margin: 100px;
+    }
+</style>
+
+	<div id="main"></div>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+
+	<script type="text/javascript">
+		console.log(echarts);
+		line_Data = [62.4, 56.9, 41.8, 18.6, 17.8, -19.7]
+    bar_Data = [21750, 34120, 48370, 57370, 67582, 80892]
+    x_Data = ['2015', '2016', '2017', '2018', '2019', '2020']
+ 
+      // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('main'));
+    var setOption = function (ec) {
+        var option = {
+            title: {
+                text: '一卡通消费笔数',
+                // subtext: "Transaction volume of China mobile e-commerce market from 2015 to 2020",
+                left: '20%',
+                textStyle: {
+                    color: 'red',
+                    fontSize: 30
+                }
+            },
+            tootip: {
+            	show:  true,
+		          axisPointer: {
+		            type: "line",
+		            lineStyle: {
+		              type: "dashed",
+		              color: "#3F8BFF",
+		            },
+		          },
+            	trigger: "axis"
+            },
+            legend: {
+                right: '45%',
+                top: "10%"
+            },
+            xAxis: {
+                name: '',
+                type: 'category',
+                data: x_Data,
+                nameGap:60,         // 坐标轴名称与轴线之间的距离。
+                axisLabel: {        // x轴标签样式
+                    textStyle: {fontSize: 20}
+                },
+                nameTextStyle: {     // 坐标轴名字样式
+                    fontSize: 20
+                },
+            },
+            yAxis: [
+                {
+                    name: '交易额（亿元）',
+                    type: 'value',
+                    min: 0,
+                    max: 100000,
+                    axisLabel: {            // 坐标轴标签样式设置
+                        textStyle: {fontSize: 20},
+                        formatter: '{value} 件',     // 给坐标轴标签加单位
+                    },
+                    nameTextStyle: {fontSize: 20},
+                }, {
+                    name: "增长率(%)",
+                    type: "value",
+                    min: -30,
+                    max: 70,
+                    position: "right",
+                    formatter: "{value}%",
+                    axisLabel: {
+                        textStyle: {fontSize: 20},
+                        formatter: '{value} %',     // 给坐标轴标签加单位
+                    },
+                    nameTextStyle: {fontSize: 20},
+                    itemStyle: {
+                    	normal: {
+			                areaStyle: {
+			                  type: "default",
+			                  //渐变色实现
+			                  color: new echarts.graphic.LinearGradient(
+			                    0,
+			                    0,
+			                    0,
+			                    1, //变化方向
+			                    //渐变色
+			                    [
+			                      { offset: 0, color: "rgba(63,139,255,.15)" },
+			                      { offset: 0.89, color: "rgba(63,139,255,0)" },
+			                    ]
+			                  ),
+			                },
+			                lineStyle: {
+			                  //线的颜色
+			                  color: "#3F8BFF",
+			                },
+			              },
+			              emphasis: {
+			                // 鼠标经过时：
+			                symbol: "circle",
+			                borderWidth: 13,
+			                borderColor: "rgba(63,139,255,.7)",
+			                // color: '#38d7b7',
+			                // borderColor: '#38d7b7',
+			              },
+                    },
+                }
+            ],
+            series: [
+                {
+                    type: "bar",
+                    data: bar_Data,
+                    label: {
+                        show: true,
+                        position: "top"
+                    }
+                },
+                {
+                    name: '销量折线图',
+                    type: 'line',
+		            smooth: true,
+                    data: line_Data,
+                    barWith: "40%",
+		            symbolSize: 1,
+		            symbol: "circle",
+		            // showSymbol: false,
+                    label: {
+                        show: false,
+                        position: "top",
+                        formatter: "{c}%"
+                    },
+                    itemStyle: {
+                    	normal: {
+			                  // color: {
+			                  // 	type: "linear",
+			                  // 	"x": 0,
+			                  //   "y": 0,
+			                  //   "x2": 0,
+			                  //   "y2": 1,
+			                  //    "colorStops": [
+			                  //       {
+			                  //           "offset": 0,
+			                  //           "color": "#2c86e1"
+			                  //       },
+			                  //       {
+			                  //           "offset": 0.5,
+			                  //           "color": "#d4f170"
+			                  //       },
+			                  //       {
+			                  //           "offset": 1,
+			                  //           "color": "#ff943c"
+			                  //       }
+			                  //   ],
+			                  //   "globalCoord": false
+			                  // },
+			                // areaStyle: {
+			                //   type: "default",
+			                //   //渐变色实现
+			                //   color: new echarts.graphic.LinearGradient(
+			                //     0,
+			                //     0,
+			                //     0,
+			                //     1, //变化方向
+			                //     //渐变色
+			                //     [
+			                //       { offset: 0, color: "rgba(63,139,255,.15)" },
+			                //       { offset: 0.89, color: "rgba(63,139,255,.75)" },
+			                //     ]
+			                //   ),
+			                // },
+			                lineStyle: {
+			                	shadowOffsetX: 0, // 折线的X偏移    
+			                    shadowOffsetY: 9,// 折线的Y偏移  
+			                    shadowBlur: 9,  // 折线模糊
+			                    shadowColor: "rgba(63,139,255,.4)",
+
+			                  //线的颜色
+			                  color:  new this.echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                      offset: 0,
+			                      color: "rgba(63,139,255,0)"
+				                  },{
+				                  	offset: 0.2,
+				                  	color: "rgba(67,142,253,.75)"
+				                  }, {
+				                  	offset: 0.6,
+				                  	color: "rgba(68,143,252,1.000)"
+				                  },{
+				                  	offset: 0.8,
+				                  	color: "rgba(69,144,252,.81)"
+				                  }, {
+				                      offset: 1,
+				                      color: "rgba(72,147,250,0)"
+				                  }
+			                  ]),
+			                },
+			              },
+
+			              emphasis: {
+			                // 鼠标经过时：
+			                symbol: "circle",
+			                borderWidth: 13,
+			                borderColor: "rgba(63,139,255,.7)",
+			                // color: '#38d7b7',
+			                // borderColor: '#38d7b7',
+			              },
+                    },
+                    yAxisIndex: 1
+                },
+            ]
+        };
+        myChart1.setOption(option)
+    }
+    setOption();
+    const autofit = {
+  init(options = {}, isShowInitTip = true) {
+    if (isShowInitTip) {
+      console.log(`%c` + `autofit.js` + ` is running`, `color: #fff; background: #f40; padding: 2px 4px; border-radius: 4px;`);
+    }
+    let designWidth = options.designWidth || 1920;
+    let designHeight = options.designHeight || 929;
+    let renderDom = options.renderDom || "#app";
+    let resize = options.resize || true;
+    let ignore = options.ignore || [];
+    let dom = document.querySelector(renderDom)
+    const style = document.createElement('style');
+    style.lang = 'text/css';
+    style.id = 'autofit-style';
+    style.innerHTML = `
+      body {
+        overflow: hidden;
+      }
+    `;
+    dom.appendChild(style);
+    dom.style.height = `${designHeight}px`;
+    dom.style.width = `${designWidth}px`;
+    dom.style.transformOrigin = `0 0`;
+    keepFit(designWidth, designHeight, dom, ignore);
+    resize && (window.onresize = () => {
+      keepFit(designWidth, designHeight, dom, ignore);
+    })
+  }
+}
+function keepFit(designWidth, designHeight, dom, ignore) {
+  let clientHeight = document.documentElement.clientHeight;
+  let clientWidth = document.documentElement.clientWidth;
+  let scale = (clientWidth / clientHeight < designWidth / designHeight) ? (clientWidth / designWidth) : (clientHeight / designHeight)
+  dom.style.height = `${clientHeight / scale}px`;
+  dom.style.width = `${clientWidth / scale}px`;
+  dom.style.transform = `scale(${scale})`;
+  for (let item of ignore) {
+    let realScale = (item.scale ? item.scale : 1 / scale)
+    let realFontSize = realScale != scale ? item.fontSize : 'autofit'
+    let realWidth = realScale != scale ? item.width : 'autofit'
+    let realHeight = realScale != scale ? item.height : 'autofit'
+    document.querySelector('#autofit-style').innerHTML += `${item.dom}{ 
+      transform: scale(${realScale})!important;
+      transform-origin: 50% 0;
+      width: ${realWidth}px!important;
+      height: ${realHeight}px!important;
+    }`;
+    document.querySelector('#autofit-style').innerHTML += `${item.dom} div ,${item.dom} span,${item.dom} a,${item.dom} *{
+    font-size: ${realFontSize}px;
+    }`;
+  }
+}
+
+    autofit.init({
+    	designHeight: 1080,
+    	designWidth: 1920,
+    	renderDom: "main",
+    	resize: true,
+    })
+	</script>
+</body>
+</html>

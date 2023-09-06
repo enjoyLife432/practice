@@ -1,0 +1,566 @@
+[
+  {
+    "name": "Tdata",
+    "path": "/tdata",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "tdata/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "数据标准",
+      "icon": "#",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Base",
+        "path": "base",
+        "hidden": false,
+        "redirect": "noRedirect",
+        "component": "ParentView",
+        "alwaysShow": true,
+        "meta": {
+          "title": "基础数据元",
+          "icon": "a-data",
+          "noCache": false,
+          "link": null
+        },
+        "children": [
+          {
+            "name": "Time",
+            "path": "time",
+            "hidden": false,
+            "component": "tdata/default",
+            "meta": {
+              "title": "时间类",
+              "icon": "a-dot",
+              "noCache": false,
+              "link": null
+            }
+          },
+          {
+            "name": "Space",
+            "path": "space",
+            "hidden": false,
+            "component": "tdata/default",
+            "meta": {
+              "title": "空间类",
+              "icon": "a-dot",
+              "noCache": false,
+              "link": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tindex",
+    "path": "/tindex",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "tindex/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "指标手册",
+      "icon": "a-index",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Oper",
+        "path": "oper",
+        "hidden": false,
+        "redirect": "noRedirect",
+        "component": "ParentView",
+        "alwaysShow": true,
+        "meta": {
+          "title": "运营指标",
+          "icon": "a-index",
+          "noCache": false,
+          "link": null
+        },
+        "children": [
+          {
+            "name": "Compre",
+            "path": "compre",
+            "hidden": false,
+            "redirect": "noRedirect",
+            "component": "ParentView",
+            "alwaysShow": true,
+            "meta": {
+              "title": "综合",
+              "icon": "a-folder",
+              "noCache": false,
+              "link": null
+            },
+            "children": [
+              {
+                "name": "Consume",
+                "path": "consume",
+                "hidden": false,
+                "component": "tindex/consume-all",
+                "meta": {
+                  "title": "总消费",
+                  "icon": "a-dot",
+                  "noCache": false,
+                  "link": null
+                }
+              }
+            ]
+          },
+          {
+            "name": "Unioncard",
+            "path": "unioncard",
+            "hidden": false,
+            "redirect": "noRedirect",
+            "component": "ParentView",
+            "alwaysShow": true,
+            "meta": {
+              "title": "交通卡一卡通",
+              "icon": "a-folder",
+              "noCache": false,
+              "link": null
+            },
+            "children": [
+              {
+                "name": "Consume",
+                "path": "consume",
+                "hidden": false,
+                "component": "tindex/consume",
+                "meta": {
+                  "title": "一卡通消费",
+                  "icon": "a-dot",
+                  "noCache": false,
+                  "link": null
+                }
+              },
+              {
+                "name": "Transfer",
+                "path": "transfer",
+                "hidden": false,
+                "component": "tindex/transfer",
+                "meta": {
+                  "title": "优惠换乘",
+                  "icon": "a-dot",
+                  "noCache": false,
+                  "link": null
+                }
+              },
+              {
+                "name": "Recharge",
+                "path": "recharge",
+                "hidden": false,
+                "component": "tindex/recharge",
+                "meta": {
+                  "title": "一卡通充资",
+                  "icon": "a-dot",
+                  "noCache": false,
+                  "link": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "System",
+    "path": "/system",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "system/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "系统管理",
+      "icon": "system",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "User",
+        "path": "user",
+        "hidden": false,
+        "component": "system/user/index",
+        "meta": {
+          "title": "用户管理",
+          "icon": "user",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Job",
+        "path": "job",
+        "hidden": false,
+        "component": "monitor/job/index",
+        "meta": {
+          "title": "定时任务",
+          "icon": "job",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Role",
+        "path": "role",
+        "hidden": false,
+        "component": "system/role/index",
+        "meta": {
+          "title": "角色管理",
+          "icon": "peoples",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Menu",
+        "path": "menu",
+        "hidden": false,
+        "component": "system/menu/index",
+        "meta": {
+          "title": "菜单管理",
+          "icon": "tree-table",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Dept",
+        "path": "dept",
+        "hidden": false,
+        "component": "system/dept/index",
+        "meta": {
+          "title": "部门管理",
+          "icon": "tree",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Post",
+        "path": "post",
+        "hidden": false,
+        "component": "system/post/index",
+        "meta": {
+          "title": "岗位管理",
+          "icon": "post",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Dict",
+        "path": "dict",
+        "hidden": false,
+        "component": "system/dict/index",
+        "meta": {
+          "title": "字典管理",
+          "icon": "dict",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Config",
+        "path": "config",
+        "hidden": false,
+        "component": "system/config/index",
+        "meta": {
+          "title": "参数设置",
+          "icon": "edit",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Notice",
+        "path": "notice",
+        "hidden": false,
+        "component": "system/notice/index",
+        "meta": {
+          "title": "通知公告",
+          "icon": "message",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Default",
+        "path": "default",
+        "hidden": true,
+        "component": "system/default",
+        "meta": {
+          "title": "默认页面",
+          "icon": "a-dot",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "Monitor",
+    "path": "/monitor",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "Layout",
+    "alwaysShow": true,
+    "meta": {
+      "title": "系统监控",
+      "icon": "monitor",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Online",
+        "path": "online",
+        "hidden": false,
+        "component": "monitor/online/index",
+        "meta": {
+          "title": "在线用户",
+          "icon": "online",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Druid",
+        "path": "druid",
+        "hidden": false,
+        "component": "monitor/druid/index",
+        "meta": {
+          "title": "数据监控",
+          "icon": "druid",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Server",
+        "path": "server",
+        "hidden": false,
+        "component": "monitor/server/index",
+        "meta": {
+          "title": "服务监控",
+          "icon": "server",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Cache",
+        "path": "cache",
+        "hidden": false,
+        "component": "monitor/cache/index",
+        "meta": {
+          "title": "缓存监控",
+          "icon": "redis",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "CacheList",
+        "path": "cacheList",
+        "hidden": false,
+        "component": "monitor/cache/list",
+        "meta": {
+          "title": "缓存列表",
+          "icon": "redis-list",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "Tool",
+    "path": "/tool",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "Layout",
+    "alwaysShow": true,
+    "meta": {
+      "title": "系统工具",
+      "icon": "tool",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Build",
+        "path": "build",
+        "hidden": false,
+        "component": "tool/build/index",
+        "meta": {
+          "title": "表单构建",
+          "icon": "build",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Gen",
+        "path": "gen",
+        "hidden": false,
+        "component": "tool/gen/index",
+        "meta": {
+          "title": "代码生成",
+          "icon": "code",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Swagger",
+        "path": "swagger",
+        "hidden": false,
+        "component": "tool/swagger/index",
+        "meta": {
+          "title": "系统接口",
+          "icon": "swagger",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "Log",
+    "path": "/log",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "monitor/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "日志管理",
+      "icon": "log",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Operlog",
+        "path": "operlog",
+        "hidden": false,
+        "component": "monitor/operlog/index",
+        "meta": {
+          "title": "操作日志",
+          "icon": "form",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Logininfor",
+        "path": "logininfor",
+        "hidden": false,
+        "component": "monitor/logininfor/index",
+        "meta": {
+          "title": "登录日志",
+          "icon": "date-range",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Default",
+        "path": "default",
+        "hidden": true,
+        "component": "monitor/default",
+        "meta": {
+          "title": "默认界面",
+          "icon": "a-index",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "Tapi",
+    "path": "/tapi",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "tapi/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "API管理",
+      "icon": "a-home",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Swagger",
+        "path": "swagger",
+        "hidden": false,
+        "component": "tool/swagger/index",
+        "meta": {
+          "title": "系统接口",
+          "icon": "a-dot",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "Tdecision",
+    "path": "/tdecision",
+    "hidden": false,
+    "redirect": "noRedirect",
+    "component": "tdecision/index",
+    "alwaysShow": true,
+    "meta": {
+      "title": "决策大屏",
+      "icon": "a-home",
+      "noCache": false,
+      "link": null
+    },
+    "children": [
+      {
+        "name": "Http://www.baidu.com",
+        "path": "http://www.baidu.com",
+        "hidden": false,
+        "component": "tdecision/default",
+        "meta": {
+          "title": "大屏浏览",
+          "icon": "a-dot",
+          "noCache": false,
+          "link": "http://www.baidu.com"
+        }
+      },
+      {
+        "name": "Report",
+        "path": "report",
+        "hidden": false,
+        "component": "tdecision/report",
+        "meta": {
+          "title": "数据填报",
+          "icon": "a-dot",
+          "noCache": false,
+          "link": null
+        }
+      },
+      {
+        "name": "Record",
+        "path": "record",
+        "hidden": false,
+        "component": "tdecision/history",
+        "meta": {
+          "title": "历史记录",
+          "icon": "a-dot",
+          "noCache": false,
+          "link": null
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+
+
+	<script type="text/javascript">
+
+		// // Generator实现async函数
+
+		// // 接受一个Generator函数作为参数
+		// function spawn(genF) {
+		//   // 返回一个函数
+		//   return function() {
+		//      // 生成指针对象
+		//      const gen = genF.apply(this, arguments);
+		//      // 返回一个promise
+		//      return new Promise((resolve, reject) => {
+		//           // key有next和throw两种取值，分别对应了gen的next和throw方法
+		//           // arg参数则是用来把promise resolve出来的值交给下一个yield
+		//           function step(key, arg) {
+		//             let result;
+
+		//                 // 监控到错误 就把promise给reject掉 外部通过.catch可以获取到错误
+		//                 try {
+		//                   result = gen[key](arg)
+		//                 } catch (error) {
+		//                   return reject(error)
+		//                 }
+
+		//                 // gen.next() 返回 { value, done } 的结构
+		//                 const { value, done } = result;
+
+		//                 if (done) {
+		//                       // 如果已经完成了 就直接resolve这个promise
+		//                       return resolve(value)
+		//                 } else {
+		//                       // 除了最后结束的时候外，每次调用gen.next()
+		//                       return Promise.resolve(
+		//                         // 这个value对应的是yield后面的promise
+		//                         value
+		//                       ).then((val)=>step("next", val),(err) =>step("throw", err))
+		//                 }
+		//           }
+		//           step("next")
+		//      })
+		//   }
+		// }
+		
+		// function fn(nums) {
+		// 	return new Promise(resolve => {
+		// 		setTimeout(() => {
+		// 			resolve(nums)
+		// 		}, 1000)
+		// 	})
+		// }
+		// // async 函数
+		// async function testAsync() {
+		// 	let res1 = await fn(1);
+		// 	console.log(res1);
+		// 	let res2 = await fn(2);
+		// 	console.log(res2);
+		// 	return res2;
+		// }
+
+		// let _res = testAsync();
+		// console.log("testAsync-res", _res);
+		// _res.then(v => console.log("testAsync-res", v));
+
+		// // Generator 函数
+		// function* gen() {
+		// 	let res1 = yield fn(3);
+		// 	console.log(res1);
+		// 	let res2 = yield fn(4);
+		// 	console.log(res2);
+		// 	return res2;
+		// }
+
+		// let _res2 = spawn(gen)();
+		// console.log("gen-res", _res2);
+
+		// _res2
+		// .then(v => console.log("gen-res", v))
+		// .catch(err => console.log(err))
+
+
+
+
+
+
+
+		let arr = [
+		{
+			age: 18,
+			name: "tom"
+		}, {
+			age: 21,
+			name: "tony"
+		}, {
+			age: 33,
+			name: "duo"
+		}, {
+			age: 28,
+			name: "zhang"
+		}]
+
+		let sortObj = {
+			sort: "asc",
+			colId: "name"
+		}
+		function compare(property) {
+			return function (a, b) {
+				let value1 = a[property];
+				let value2 = b[property];
+				return value1 - value2;
+			}
+		}
+		let newArr = arr.sort(compare(sortObj.colId))
+		console.log(newArr.map(item => item.name))
+
+	</script>
+
+</body>
+</html>
