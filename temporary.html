@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        perspective: 1000px;
+      }
+
+      .stage {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate 8s linear infinite;
+      }
+
+      .cube {
+        width: 40px;
+        height: 70px;
+        position: absolute;
+        transition: all 1.5s ease-in-out;
+        transform-style: preserve-3d;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="stage" id="stage"></div>
+    </div>
+
+    <script>
+      const colors = ["#00f", "#ff0", "#0f0"];
+      const stage = document.getElementById("stage");
+
+      // 创建84个方块
+      for (let i = 0; i < 84; i++) {
+        const cube = document.createElement("div");
+        cube.className = "cube";
+        cube.style.backgroundColor = colors[Math.floor(Math.random() * 3)];
+
+        // 初始位置计算
+        const col = i % 12;
+        const row = Math.floor(i / 12);
+        cube.style.left = col * 40 + "px";
+        cube.style.top = row * 70 + "px";
+
+        stage.appendChild(cube);
+      }
+
+      // 动画触发
+      setTimeout(() => {
+        const cubes = document.querySelectorAll(".cube");
+        cubes.forEach((cube, index) => {
+          const layer = index % 3;
+          const translateZ = layer * 100;
+          const translateY = layer * 50;
+          const rotate = layer * 30;
+
+          cube.style.transform = `
+                    translateZ(${translateZ}px)
+                    translateY(${translateY}px)
+                    rotateX(${rotate}deg)
+                `;
+          cube.style.transitionDelay = `${index * 0.02}s`;
+        });
+      }, 500);
+    </script>
+  </body>
+</html>

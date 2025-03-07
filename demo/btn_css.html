@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      width="148"
+      height="142"
+    >
+      <path
+        d="M4.94536,5 C6.53052,4.67822 37,4.9603 74,4.9603 C111,4.9603 141.35205,4.67993 143.05464,5 C145.78589,5.66926 148,8.23345 148,11.00689 L148,41.99311 C148,44.75834 145.793,47.37319 143.06521,48 C141.02368,48.34741 111,48.04465 74,48.0397 C43.47616,48.04378 6.64355,48.27456 4.92422,48 C2.20465,47.36068 0,44.76655 0,41.99311 L0,11.00689 C0,8.24166 2.207,5.66022 4.94536,5 Z"
+        data-over-path="M4.94536417,5 C6.53051758,4.67822266 37,0 74,0 C111,0 141.352051,4.67993164 143.054636,5 C145.785885,5.66926188 148,8.23345454 148,11.0068935 L148,41.9931065 C148,44.7583374 145.792998,47.3731866 143.065211,48 C141.023682,48.3474121 111,53.6231884 74,53 C43.4761603,53.5141109 6.64355469,48.274559 4.92422485,48 C2.20465056,47.3606837 0,44.7665455 0,41.9931065 L0,11.0068935 C0,8.24166255 2.20700163,5.66022277 4.94536417,5 Z"
+        fill="#00bbff"
+        transform="translate(0 50)"
+      ></path>
+    </svg>
+    <span>主页</span>
+    <script src="./dynamics.js"></script>
+    <script>
+      var el = document.querySelector("path");
+      var textEl = document.querySelector("span");
+      var pathOver = el.getAttribute("data-over-path");
+      var pathOut = el.getAttribute("d");
+
+      // Over animation
+      function animateOver() {
+        dynamics.animate(
+          el,
+          {
+            d: pathOver,
+            // fill: "#007EFF",
+          },
+          {
+            type: dynamics.spring,
+            complete: animateOut,
+          }
+        );
+
+        dynamics.animate(
+          textEl,
+          {
+            scale: 1.06,
+          },
+          {
+            type: dynamics.spring,
+          }
+        );
+      }
+
+      // Out animation
+      function animateOut() {
+        dynamics.animate(
+          el,
+          {
+            d: pathOut,
+            fill: "#0bf",
+          },
+          {
+            type: dynamics.easeInOut,
+            friction: 100,
+          }
+        );
+
+        dynamics.animate(
+          textEl,
+          {
+            scale: 1,
+          },
+          {
+            type: dynamics.easeInOut,
+            friction: 100,
+            complete: function () {
+              dynamics.setTimeout(animateOver, 500);
+            },
+          }
+        );
+      }
+
+      // Start
+      animateOver();
+    </script>
+  </body>
+</html>

@@ -1,114 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        // 创建数据仓库
-        var request = window.indexedDB.open("group", 1);
-        // 数据仓库打开失败
+      // 创建数据仓库
+      var request = window.indexedDB.open("indexGroup", 1);
+      // 数据仓库打开失败
+      request.onerror = function (error) {
+        console.log(error, "indexed 打开失败");
+      };
+      var db = null;
+      // 数据仓库打开成功
+      request.onsuccess = function (res) {
+        console.log(res, "indexed 打开成功");
+        db = res.target.result;
+        // 新建事务 -- 添加数据
+        var store = db.transaction(["group"], "readwrite").objectStore("group");
+        // // add 方法添加数据
+        var res = store.add({
+          id: 123456,
+          name: "王二",
+          age: 12,
+          email: "enjoylife432@163.com",
+        });
+        // 添加成功
+        res.onsuccess = function (event) {
+          console.log("添加成功", event);
+        };
+        // 添加失败
+        res.onerror = function (error) {
+          console.log("添加失败", error);
+        };
+
+        // 新建事务 -- 获取数据
+        var store = db.transaction(["group"]).objectStore("group");
+        var request = store.get(123456);
+
+        request.onsuccess = function (event) {
+          if (event.target.result) {
+            console.log("数据获取成功", event.target.result);
+          } else {
+            console.log("未获取到数据");
+          }
+        };
         request.onerror = function (error) {
-            console.log(error, "indexed 打开失败")
-        }
-        var db = null;
-        // 数据仓库打开成功
-        request.onsuccess = function (res) {
-            console.log(res, "indexed 打开成功");
-            db = res.target.result;
-            // 新建事务 -- 添加数据
-            // var store = db.transaction(['group'], 'readwrite').objectStore('group');
-            // // add 方法添加数据
-            // var res = store.add({
-            //     id: new Date().getTime(),
-            //     name: "王二",
-            //     age: 12,
-            //     email: "enjoylife432@163.com"
-            // });
-            // // 添加成功
-            // res.onsuccess = function (event) {
-            //     console.log("添加成功", event)
-            // }
-            // // 添加失败
-            // res.onerror = function (error) {
-            //     console.log("添加失败", error)
-            // }
+          console.log(error, "获取失败");
+        };
 
-            // 新建事务 -- 获取数据
-            // var store = db.transaction(["group"]).objectStore("group");
-            // var request = store.get(1685932503060);
+        // 新建事务 -- 更新数据
+        // var store = db.transaction(["group"], "readwrite").objectStore("group");
+        // var request = store.put({
+        //     id: 1685932549477,
+        //     name: "张三" + Math.random(),
+        //     age: 29,
+        //     email: "zhangchaoyang@jiuyv.com"
+        // });
+        // request.onsuccess = function(event) {
+        //     console.log("更新数据成功", event);
+        // }
+        // request.onerror = function (error) {
+        //     console.log("更新数据失败", error)
+        // }
 
-            // request.onsuccess = function (event) {
-            //     if (event.target.result) {
-            //         console.log("数据获取成功", event.target.result);
-            //     } else {
-            //         console.log("未获取到数据")
-            //     }
-            // }
-            // request.onerror = function (error) {
-            //     console.log(error, "获取失败")
-            // }
+        // 新建事务 -- 删除数据
+        var store = db.transaction(["group"], "readwrite").objectStore("group");
+        var request = store.delete(1685932510574);
+        request.onsuccess = function (event) {
+          console.log("删除数据成功", event);
+        };
+        request.onerror = function (error) {
+          console.log("删除数据失败", error);
+        };
 
-            // 新建事务 -- 更新数据
-            // var store = db.transaction(["group"], "readwrite").objectStore("group");
-            // var request = store.put({
-            //     id: 1685932549477,
-            //     name: "张三" + Math.random(),
-            //     age: 29,
-            //     email: "zhangchaoyang@jiuyv.com"
-            // });
-            // request.onsuccess = function(event) {
-            //     console.log("更新数据成功", event);
-            // }
-            // request.onerror = function (error) {
-            //     console.log("更新数据失败", error)
-            // }
+        // 新建事务 --- 通过index获取数据
+        var store = db.transaction(["group"]).objectStore("group");
+        var request = store.index("indexName").get("王二");
+        request.onsuccess = function (event) {
+          console.log(event.target.result, "通过index获取数据成功");
+        };
+        request.onerror = function (error) {
+          console.log("通过index获取数据失败", error);
+        };
 
-            // 新建事务 -- 删除数据
-            // var store = db.transaction(["group"], "readwrite").objectStore("group");
-            // var request = store.delete(1685932510574);
-            // request.onsuccess = function (event) {
-            //     console.log("删除数据成功", event);
-            // }
-            // request.onerror = function (error) {
-            //     console.log("删除数据失败", error)
-            // }
-
-            // 新建事务 --- 通过index获取数据
-            // var store = db.transaction(["group"]).objectStore("group");
-            // var request = store.index("indexName").get("王二");
-            // request.onsuccess = function (event) {
-            //     console.log(event.target.result, "通过index获取数据成功")
-            // }
-            // request.onerror = function (error) {
-            //     console.log("通过index获取数据失败", error)
-            // }
-            
-            // 新建事务 --- 获取整张表data
-            var store = db.transaction(["group"]).objectStore("group");
-            var request = store.getAll();
-            request.onsuccess = function (event) {
-                console.log(event.target.result, "获取所有data成功");
-            }
-            request.onerror = function (error) {
-                console.log(error, "获取所有data失败")
-            }
-
-        }
-        // 数据仓库升级事件
-        request.onupgradeneeded = function (res) {
-            console.log("indexedDB 升级成功", res);
-            db = res.target.result;
-            db_table = db.createObjectStore("group", { keyPath: "id" });
-            db_table.createIndex("indexName", "name", { unique: false })
-        }
-
-
-
-
+        // 新建事务 --- 获取整张表data
+        var store = db.transaction(["group"]).objectStore("group");
+        var request = store.getAll();
+        request.onsuccess = function (event) {
+          console.log(event.target.result, "获取所有data成功");
+        };
+        request.onerror = function (error) {
+          console.log(error, "获取所有data失败");
+        };
+      };
+      // 数据仓库升级事件
+      request.onupgradeneeded = function (res) {
+        console.log("indexedDB 升级成功", res);
+        db = res.target.result;
+        db_table = db.createObjectStore("group", { keyPath: "id" });
+        db_table.createIndex("indexName", "name", { unique: false });
+      };
     </script>
-</body>
+  </body>
 </html>

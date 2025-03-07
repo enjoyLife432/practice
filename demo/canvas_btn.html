@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      canvas {
+        border: none;
+      }
+    </style>
+    <title>Expanding Button Animation</title>
+  </head>
+  <body>
+    <canvas id="expandingButton" width="200" height="80"></canvas>
+    <script>
+      const canvas = document.getElementById("expandingButton");
+      const ctx = canvas.getContext("2d");
+      const button = { x: 100, y: 40, radius: 20, scale: 1 };
+
+      function drawButton() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.fillStyle = "blue";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.rect(10, 10, 80, 30);
+        ctx.roundRect(10, 10, 80, 30, 10);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        if (button.scale < 1.2) {
+          button.scale += 0.02;
+        } else {
+          button.scale = 1;
+        }
+
+        drawButton();
+      }
+
+      canvas.addEventListener("click", () => {
+        button.scale = 1.2;
+      });
+
+      animate();
+    </script>
+  </body>
+</html>
